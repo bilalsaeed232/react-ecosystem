@@ -18,8 +18,11 @@ export const NewTodoForm = ( {todos=[], onCreateTodo} ) => {
                 className="new-todo-button"
                 onClick={
                     () => {
-                        onCreateTodo(inputValue);
-                        setInputValue('');
+                        const isDuplicateText = todos.some((todo) => todo.text === inputValue );
+                        if(!isDuplicateText) {
+                            onCreateTodo(inputValue);
+                            setInputValue('');
+                        }
                     }
                 }
                 >Create Todo</button>
