@@ -14,8 +14,8 @@ const persistedStore = persistStore(store);
 
 ReactDOM.render(
     <Provider store={store}>
-        <PersistGate persistor={persistedStore}>
+        {/* <PersistGate persistor={persistedStore}> */}
             <App />
-        </PersistGate>
+        {/* </PersistGate> */}
     </Provider>,
     document.getElementById("root"));
