@@ -5,7 +5,7 @@ import TodoListItem from "./TodoListItem";
 import NewTodoForm from './NewTodoForm';
 
 import { removeTodo, markTodo } from "./actions";
-import { loadTodos } from './thunks';
+import { deleteTodoRequest, loadTodos } from './thunks';
 
 import './TodoList.css';
 
@@ -35,7 +35,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onRemovePressed: text => dispatch(removeTodo(text)),
+    onRemovePressed: text => dispatch(deleteTodoRequest(text)),
     onMarkPressed: text => dispatch(markTodo(text)),
     startLoadingTodos: () => dispatch(loadTodos())
 
