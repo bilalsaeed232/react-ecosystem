@@ -5,6 +5,9 @@ import styled from "styled-components";
 const TodoItemContainer = styled.div`
     background: #fff;
     border-radius: 8px;
+    border-bottom: ${props => (new Date(props.createdAt) > new Date(Date.now() - 86400000 * 5) 
+        ? 'none' 
+        : '2px solid red') };
     margin-top: 8px;
     padding: 16px;
     position: relative;
@@ -40,8 +43,9 @@ const RemoveButton = styled(Button)`
 
 
 const TodoListItem = ( { todo, onRemovePressed, onMarkPressed } ) => (
-    <TodoItemContainer>
+    <TodoItemContainer createdAt={todo.createdAt}>
         <h3>{ todo.text }</h3>
+        <p>Created At: {new Date(todo.createdAt).toLocaleDateString()}</p>
         <ButtonsContainer>
             { 
                 todo.isCompleted 
