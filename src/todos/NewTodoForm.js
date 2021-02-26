@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { createTodo } from "./actions";
 import './NewTodoForm.css';
+import { addTodoRequest } from './thunks';
 
 export const NewTodoForm = ( {todos=[], onCreateTodo} ) => {
     const [ inputValue, setInputValue ] = useState('')
@@ -36,7 +37,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onCreateTodo: text => dispatch(createTodo(text))
+    onCreateTodo: text => dispatch(addTodoRequest(text))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewTodoForm);
