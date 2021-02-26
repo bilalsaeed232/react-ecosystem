@@ -44,7 +44,7 @@ export const todos = (state = initialState, action) => {
             const {todo: todoToUpdate} = payload;
             return {
                 ...state,
-                data: state.map(todo => {
+                data: state.data.map(todo => {
                         if(todo.id === todoToUpdate.id) { // more like a toggle so that this action can be used in future as well
                             return todoToUpdate;
                         }
