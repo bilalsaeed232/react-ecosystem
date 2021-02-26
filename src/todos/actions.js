@@ -10,10 +10,10 @@ export const removeTodo = (todo) => ({
     payload: {todo}
 });
 
-export const MARK_TODO = 'MARK_TODO';
-export const markTodo = (text) => ({
-    type: MARK_TODO,
-    payload: {text}
+export const UPDATE_TODO = 'UPDATE_TODO';
+export const updateTodo = (todo) => ({
+    type: UPDATE_TODO,
+    payload: {todo}
 })
 
 

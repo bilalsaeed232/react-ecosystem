@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import TodoListItem from "./TodoListItem";
 import NewTodoForm from './NewTodoForm';
 
-import { removeTodo, markTodo } from "./actions";
-import { deleteTodoRequest, loadTodos } from './thunks';
+import { removeTodo, updateTodo } from "./actions";
+import { deleteTodoRequest, loadTodos, updateTodoRequest } from './thunks';
 
 import './TodoList.css';
 
@@ -36,7 +36,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     onRemovePressed: text => dispatch(deleteTodoRequest(text)),
-    onMarkPressed: text => dispatch(markTodo(text)),
+    onMarkPressed: id => dispatch(updateTodoRequest(id)),
     startLoadingTodos: () => dispatch(loadTodos())
 
 })

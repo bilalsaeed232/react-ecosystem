@@ -1,6 +1,6 @@
 import { 
     CREATE_TODO, 
-    MARK_TODO, 
+    UPDATE_TODO, 
     REMOVE_TODO,
     LOAD_TODOS_SUCCESS,
     LOAD_TODOS_IN_PROGRESS,
@@ -21,11 +21,11 @@ export const todos = (state = [], action) => {
             return state.filter( t => t.id !== todo.id);           
         }
 
-        case MARK_TODO: {
-            const {text} = payload;
+        case UPDATE_TODO: {
+            const {todo: todoToUpdate} = payload;
             return state.map(todo => {
-                if(todo.text === text) { // more like a toggle so that this action can be used in future as well
-                    todo.isCompleted = !todo.isCompleted
+                if(todo.id === todoToUpdate.id) { // more like a toggle so that this action can be used in future as well
+                    return todoToUpdate;
                 }
                 return todo;
             })
